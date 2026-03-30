@@ -34,7 +34,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    // 3. ถ้าไม่เจอทั้งคู่ แปลว่ากรอกผิด
+    // 3. ถ้าไม่เจออาจารย์ ให้ลองเช็คในตารางเจ้าหน้าที่ (Faculty Staff)
+    $sql_staff = "SELECT * FROM faculty_staff WHERE username = '$username' AND password = '$password'";
+    $result_staff = mysqli_query($conn, $sql_staff);
+
+    if (mysqli_num_rows($result_staff) == 1) {
+        $row = mysqli_fetch_assoc($result_staff);
+        $_SESSION['user_role'] = 'staff'; // กำหนด Role เป็น staff
+        $_SESSION['user_id']   = $row['faculty_staff_id'];
+        $_SESSION['full_name'] = $row['first_name'] . " " . $row['last_name'];
+
+        header("Location: staff/view_all.php"); // เด้งไปหน้าจัดการรวมของเจ้าหน้าที่
+        exit();
+}
+
+    // 4. ถ้าไม่เจอใครเลยค่อยแจ้ง Error
     echo "<script>alert('Username หรือ Password ไม่ถูกต้อง!'); window.location='login.php';</script>";
 }
 ?>
