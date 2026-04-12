@@ -1,0 +1,202 @@
+<?php include 'db_connect.php'; ?>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าแรก - IS SWU</title>
+    <!-- ไฟล์ CSS Bootstrap และ FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS สำหรับจัดจอภาพสไลด์และเอฟเฟกต์การ์ด -->
+    <style>
+        .hero-slider {
+            height: calc(100vh - 85px);
+            position: relative;
+        }
+        .hero-slider .carousel-inner, .hero-slider .carousel-item {
+            height: 100%;
+        }
+        .hero-slider .carousel-item img {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+        .carousel-overlay {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 70%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            z-index: 1;
+        }
+        .custom-caption {
+            position: absolute;
+            bottom: 80px;
+            left: 80px;
+            z-index: 2;
+            color: white;
+            text-align: left;
+        }
+        .custom-caption h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+            margin-bottom: 5px;
+        }
+        .custom-caption p {
+            font-size: 1.8rem;
+            font-weight: 400;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+        }
+        .transition-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .transition-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+        }
+        @media (max-width: 768px) {
+            .custom-caption { left: 30px; bottom: 50px; }
+            .custom-caption h1 { font-size: 2.5rem; }
+            .custom-caption p { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body class="bg-light">
+    
+    <!-- ดึง Navbar -->
+    <?php include 'navbar.php'; ?>
+
+    <!-- ================= ส่วน SLIDER ภาพสไลด์ ================= -->
+    <div id="swuCarousel" class="carousel slide hero-slider" data-bs-ride="carousel" data-bs-interval="4000">
+        
+        <div class="carousel-indicators" style="z-index: 3;">
+            <button type="button" data-bs-target="#swuCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#swuCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#swuCarousel" data-bs-slide-to="2"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <!-- รูปที่ 1 -->
+            <div class="carousel-item active">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920" alt="Students">
+                <div class="carousel-overlay"></div>
+                <div class="custom-caption">
+                    <h1>Information Studies Internships</h1>
+                    <p>ระบบจัดการฝึกงาน หลักสูตรสารสนเทศศึกษา มศว</p>
+                </div>
+            </div>
+            
+            <!-- รูปที่ 2 -->
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920" alt="University">
+                <div class="carousel-overlay"></div>
+                <div class="custom-caption">
+                    <h1>Learning University for Society</h1>
+                    <p>พัฒนานวัตกร ยกระดับสังคมแห่งการเรียนรู้</p>
+                </div>
+            </div>
+
+            <!-- รูปที่ 3 -->
+            <div class="carousel-item">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920" alt="Technology">
+                <div class="carousel-overlay"></div>
+                <div class="custom-caption">
+                    <h1>Professional Experience</h1>
+                    <p>ก้าวสู่โลกแห่งการทำงานจริงด้วยประสบการณ์สหกิจศึกษา</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#swuCarousel" data-bs-slide="prev" style="z-index: 3; width: 7%;">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#swuCarousel" data-bs-slide="next" style="z-index: 3; width: 7%;">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- ================= ส่วน ข่าวสารกิจกรรม ================= -->
+    <div class="container py-5 mt-4" id="showcase">
+        
+        <h3 class="fw-bold text-danger mb-4 border-start border-4 border-danger ps-3">
+            <i class="fas fa-camera"></i> ข่าวสารกิจกรรม & IS Showcase
+        </h3>
+
+        <!-- รายการการ์ดข่าวสาร 3 การ์ดหลัก -->
+        <div class="row g-4 mb-4">
+            
+            <!-- การ์ด 1 -->
+            <div class="col-lg-4 col-md-6">
+                <!-- ขอบการ์ดสามารถกดได้ทั้งหมด -->
+                <div class="card border-0 shadow-sm transition-hover h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800" class="card-img-top" height="220" style="object-fit:cover;">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="mb-2"><span class="badge bg-danger px-3 py-2">Showcase ผลงาน</span></div>
+                        <h6 class="fw-bold fs-5 mt-1">นิทรรศการ IS Senior Project 2023</h6>
+                        <p class="small text-muted mt-2 mb-4" style="line-height: 1.6;">นิทรรศการนำเสนอผลงานปริญญานิพนธ์ของนิสิตชั้นปีที่ 4 หลักสูตรสารสนเทศศึกษา โชว์นวัตกรรมแอปพลิเคชัน...</p>
+                        
+                        <!-- ลิงก์ทะลุไปหน้า กิจกรรม -->
+                        <a href="activities.php" class="btn btn-outline-danger w-100 mt-auto py-2 fw-medium">
+                            อ่านเพิ่มเติม <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- การ์ด 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm transition-hover h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800" class="card-img-top" height="220" style="object-fit:cover;">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="mb-2"><span class="badge bg-primary px-3 py-2">วิชาการ</span></div>
+                        <h6 class="fw-bold fs-5 mt-1">สัมมนาหัวข้อ Data Trends 2024</h6>
+                        <p class="small text-muted mt-2 mb-4" style="line-height: 1.6;">บรรยายพิเศษโดยวิทยากรผู้เชี่ยวชาญจากองค์กรชั้นนำ เพื่อเตรียมความพร้อมนิสิตก่อนออกปฏิบัติงานสหกิจศึกษา...</p>
+                        
+                        <!-- ลิงก์ทะลุไปหน้า กิจกรรม -->
+                        <a href="activities.php" class="btn btn-outline-primary w-100 mt-auto py-2 fw-medium">
+                            อ่านเพิ่มเติม <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- การ์ด 3 -->
+             <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm transition-hover h-100 d-flex flex-column">
+                    <img src="https://images.unsplash.com/photo-1523580494112-0714154dec96?w=800" class="card-img-top" height="220" style="object-fit:cover;">
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="mb-2"><span class="badge bg-success px-3 py-2">กิจกรรมนิสิต</span></div>
+                        <h6 class="fw-bold fs-5 mt-1">ค่ายพัฒนาศักยภาพ IS Camp #10</h6>
+                        <p class="small text-muted mt-2 mb-4" style="line-height: 1.6;">กิจกรรมทัศนศึกษาและสานสัมพันธ์รุ่นพี่รุ่นน้องชั้นปีที่ 1-4 ณ จังหวัดระยอง เพื่อส่งเสริมทักษะการทำงานเป็นทีม...</p>
+                        
+                        <!-- ลิงก์ทะลุไปหน้า กิจกรรม -->
+                        <a href="activities.php" class="btn btn-outline-success w-100 mt-auto py-2 fw-medium">
+                            อ่านเพิ่มเติม <i class="fas fa-arrow-right ms-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- ปุ่มดูข่าวสารทั้งหมด -->
+        <div class="text-center mt-3">
+             <a href="activities.php" class="btn btn-danger px-4 py-2 rounded-pill shadow-sm fw-bold">
+                 ดูข่าวสารทั้งหมด <i class="fas fa-angle-right ms-1"></i>
+             </a>
+        </div>
+
+    </div>
+
+    <!-- ดึงส่วนท้ายมาแสดง -->
+    <?php include 'footer.php'; ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
