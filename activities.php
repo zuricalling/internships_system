@@ -1,6 +1,7 @@
 <?php include('includes/db_connect.php'); ?>
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,7 @@
             padding: 80px 0;
             color: white;
             text-align: center;
-            margin-top: 0; 
+            margin-top: 0;
             margin-bottom: 40px;
         }
 
@@ -23,7 +24,7 @@
            ========================================= */
         .slider-wrapper {
             position: relative;
-            padding: 0 10px; 
+            padding: 0 10px;
         }
 
         /* ปรับให้กริดเลื่อนแนวนอนได้ และซ่อน Scrollbar */
@@ -32,13 +33,16 @@
             overflow-x: auto;
             overflow-y: hidden;
             scroll-behavior: smooth;
-            -ms-overflow-style: none;  /* สำหรับ IE และ Edge */
-            scrollbar-width: none;  /* สำหรับ Firefox */
-            padding-bottom: 15px; 
+            -ms-overflow-style: none;
+            /* สำหรับ IE และ Edge */
+            scrollbar-width: none;
+            /* สำหรับ Firefox */
+            padding-bottom: 15px;
         }
 
         #activity-grid::-webkit-scrollbar {
-            display: none; /* ซ่อน Scrollbar ของ Chrome, Safari, Opera */
+            display: none;
+            /* ซ่อน Scrollbar ของ Chrome, Safari, Opera */
         }
 
         /* สไตล์ของปุ่มเลื่อน */
@@ -51,7 +55,7 @@
             background-color: #ffffff;
             border: 1px solid #e0e0e0;
             border-radius: 50%;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             z-index: 10;
             cursor: pointer;
             display: flex;
@@ -65,17 +69,27 @@
         .slide-btn:hover {
             background-color: #f8f9fa;
             color: #c4122d;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
 
-        .slide-btn-prev { left: -20px; }
-        .slide-btn-next { right: -20px; }
+        .slide-btn-prev {
+            left: -20px;
+        }
+
+        .slide-btn-next {
+            right: -20px;
+        }
 
         @media (max-width: 768px) {
-            .slide-btn { display: none; } /* ซ่อนปุ่มในมือถือให้ใช้นิ้วปัดแทน */
+            .slide-btn {
+                display: none;
+            }
+
+            /* ซ่อนปุ่มในมือถือให้ใช้นิ้วปัดแทน */
         }
     </style>
 </head>
+
 <body style="background-color: #f8f9fa;">
 
     <?php include 'navbar.php'; ?>
@@ -88,7 +102,7 @@
     </div>
 
     <div class="container py-5 mb-5">
-        
+
         <div class="text-center filter-btn-group mb-5">
             <button class="btn active" data-filter="all">ทั้งหมด</button>
             <button class="btn" data-filter="showcase"><i class="fas fa-star"></i> Showcase ผลงาน</button>
@@ -97,27 +111,27 @@
         </div>
 
         <div class="slider-wrapper position-relative">
-            
+
             <button class="slide-btn slide-btn-prev" id="slidePrev">
                 <i class="fas fa-chevron-left"></i>
             </button>
 
             <div class="row g-4" id="activity-grid">
-                
+
                 <div class="col-lg-4 col-md-6 a-item showcase" style="min-width: 320px;">
                     <div class="activity-card-item h-100 d-flex flex-column bg-white shadow-sm border-0 rounded-4 overflow-hidden position-relative">
                         <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800" class="img-fluid w-100 object-fit-cover" style="height: 220px;" alt="Showcase">
                         <div class="activity-date-box" style="top: 15px; left: 15px;">
-                            <span class="day">15</span>
-                            <span class="month">ต.ค. 66</span>
+                            <span class="day">23</span>
+                            <span class="month">ก.พ. 69</span>
                         </div>
                         <div class="card-body p-4 d-flex flex-column h-100">
                             <div class="mb-3">
                                 <span class="badge bg-danger px-3 py-2 fw-bold rounded-1" style="font-size: 13px;">Showcase ผลงาน</span>
                             </div>
-                            <h5 class="fw-bold text-dark mt-1">นิทรรศการ IS Senior Project 2023</h5>
+                            <h5 class="fw-bold text-dark mt-1">กิจกรรมแข่งขันสร้างความตระหนักรู้ด้านคดีภัยออนไลน์ Cyber Guardians & Digital Art Challenge University</h5>
                             <p class="small text-muted mt-2 mb-4" style="line-height: 1.6;">
-                                นิทรรศการนำเสนอผลงานปริญญานิพนธ์ของนิสิตชั้นปีที่ 4 หลักสูตรสารสนเทศศึกษา โชว์นวัตกรรมด้านการจัดการข้อมูล...
+                                กิจกรรมแข่งขันสร้างความตระหนักรู้ด้านคดีภัยออนไลน์ Cyber Guardians & Digital Art Challenge University...
                             </p>
                             <button class="btn btn-outline-danger w-100 mt-auto py-2 fw-bold" data-bs-toggle="modal" data-bs-target="#modalShowcase">
                                 อ่านเพิ่มเติม <i class="fas fa-arrow-right ms-1"></i>
@@ -142,9 +156,9 @@
                                 บรรยายพิเศษโดยวิทยากรองค์กรชั้นนำ เพื่อเตรียมความพร้อมนิสิตก่อนออกปฏิบัติงานสหกิจศึกษา...
                             </p>
                             <button class="btn w-100 mt-auto py-2 fw-bold" style="border: 1px solid #0d6efd; color: #0d6efd;"
-                                    onmouseover="this.style.backgroundColor='#0d6efd'; this.style.color='white';" 
-                                    onmouseout="this.style.backgroundColor='transparent'; this.style.color='#0d6efd';" 
-                                    data-bs-toggle="modal" data-bs-target="#modalAcademic">
+                                onmouseover="this.style.backgroundColor='#0d6efd'; this.style.color='white';"
+                                onmouseout="this.style.backgroundColor='transparent'; this.style.color='#0d6efd';"
+                                data-bs-toggle="modal" data-bs-target="#modalAcademic">
                                 อ่านเพิ่มเติม <i class="fas fa-arrow-right ms-1"></i>
                             </button>
                         </div>
@@ -167,9 +181,9 @@
                                 กิจกรรมทัศนศึกษาและสานสัมพันธ์รุ่นพี่รุ่นน้องชั้นปีที่ 1-4 ณ จังหวัดระยอง เพื่อส่งเสริมทักษะการทำงานเป็นทีม...
                             </p>
                             <button class="btn w-100 mt-auto py-2 fw-bold" style="border: 1px solid #198754; color: #198754;"
-                                    onmouseover="this.style.backgroundColor='#198754'; this.style.color='white';" 
-                                    onmouseout="this.style.backgroundColor='transparent'; this.style.color='#198754';" 
-                                    data-bs-toggle="modal" data-bs-target="#modalCamp">
+                                onmouseover="this.style.backgroundColor='#198754'; this.style.color='white';"
+                                onmouseout="this.style.backgroundColor='transparent'; this.style.color='#198754';"
+                                data-bs-toggle="modal" data-bs-target="#modalCamp">
                                 อ่านเพิ่มเติม <i class="fas fa-arrow-right ms-1"></i>
                             </button>
                         </div>
@@ -181,34 +195,46 @@
             </button>
         </div>
         <div class="modal fade" id="modalShowcase" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content border-0 shadow-lg">
-                <div class="modal-header text-white" style="background-color: #c4122d;">
-                    <h5 class="modal-title fw-bold fs-6">นิทรรศการ IS Senior Project 2023</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-0">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200" class="img-fluid w-100" style="max-height: 400px; object-fit: cover;">
-                    <div class="p-4">
-                        <h6 class="fw-bold mb-3" style="color: #c4122d;">รายละเอียดกิจกรรม</h6>
-                        <p class="text-muted" style="text-align: justify; font-size: 14px; line-height: 1.7;">
-                            นิทรรศการนำเสนอผลงานปริญญานิพนธ์ประจำปีการศึกษา 2566 ของนิสิตชั้นปีที่ 4 หลักสูตรสารสนเทศศึกษา โดยมีผลงานด้านฐานข้อมูล นวัตกรรมแอปพลิเคชัน และการวิเคราะห์สารสนเทศ มากกว่า 30 โครงงาน จัดขึ้น ณ ลานอเนกประสงค์ มศว ประสานมิตร
-                        </p>
-                        <p class="mb-0" style="font-size: 14px;"><strong>ผู้รับผิดชอบ:</strong> คณะกรรมการนิสิตชั้นปีที่ 4</p>
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content border-0 shadow-lg">
+                    <div class="modal-header text-white" style="background-color: #c4122d;">
+                        <h5 class="modal-title fw-bold fs-6">นิทรรศการ IS Senior Project 2023</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                </div>
-                <div class="modal-footer border-0 pt-0">
-                    <button type="button" class="btn btn-secondary btn-sm px-4 fw-bold" data-bs-dismiss="modal">ปิดหน้าต่าง</button>
+                    <div class="modal-body p-0">
+                        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200" class="img-fluid w-100" style="max-height: 400px; object-fit: cover;">
+                        <div class="p-4">
+                            <h6 class="fw-bold mb-3" style="color: #c4122d;">รายละเอียดกิจกรรม</h6>
+                            <p class="text-muted" style="text-align: justify; font-size: 14px; line-height: 1.7;">
+                                เมื่อวันที่ 23 กุมภาพันธ์ 2569 ที่ผ่านมา นิสิตชั้นปีที่ 4 สาขาวิชาสารสนเทศศึกษาได้เข้าร่วมกิจกรรมแข่งขันสร้างความตระหนักรู้ด้านคดีภัยออนไลน์ (รอบชิงชนะเลิศ)
+                                Cyber Guardians & Digital Art Challenge (ครั้งที่ ๒) University ณ ห้อง Magic 3 โรงแรม มิราเคิล แกรนด์ คอนเวนชั่น กรุงเทพฯ จัดโดยกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม หรือ กระทรวงดีอี (MDES)
+                            </p>
+                            <p class="text-muted" style="text-align: justify; font-size: 14px; line-height: 1.7;">
+                                สำหรับการจัดกิจกรรมดังกล่าว จัดขึ้นเพื่อส่งเสริมให้เยาวชนตระหนักถึงความสำคัญของการรักษาความปลอดภัยทางเทคโนโลยี รู้และความเข้าใจเกี่ยวกับภัยออนไลน์ เสริมสร้างเกราะป้องกันการตกเป็นเหยื่อของอาชญากรรมทางเทคโนโลยี นอกจากนี้เป็นการสนับสนุนให้เยาวชนได้เรียนรู้และพัฒนาเกี่ยวกับปัญญาประดิษฐ์ (AI) เป็นอีกหนึ่งแนวทางสำคัญในการเตรียมความพร้อมสู่อนาคต 
+                                เพื่อสามารถนำความรู้ไปใช้ในการสร้างสรรค์นวัตกรรมใหม่ ๆ เพื่อพัฒนาโอกาส ในอาชีพการงานของตนเองได้ <br>
+                                ชื่องานภาษาอังกฤษ : Cyber Guardians Digital Art Challenge ครั้งที่ 2 University
+                                ชื่องานภาษาไทย : กิจกรรมการสร้างความตระหนักรู้ด้านคดีภัยออนไลน์
+                                นิสิตสาขาวิชาสารสนเทศศึกษา ชั้นปีที่ 4 ได้รับรางวัลชมเชยอับดับ 1
+                                รายชื่อสมาชิก :
+                                1. นายปิยศักดิ์ ปานประทีป
+                                2. นางสาวชารีดา พึ่งกริม
+                                3. นางสาวอารียา สงวนพงศ์
+                            </p>
+                            <p class="mb-0" style="font-size: 14px;"><strong>ผู้รับผิดชอบ:</strong> คณะกรรมการนิสิตชั้นปีที่ 4</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer border-0 pt-0">
+                        <button type="button" class="btn btn-secondary btn-sm px-4 fw-bold" data-bs-dismiss="modal">ปิดหน้าต่าง</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
     <?php include 'footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+
     <script>
         // =========================================
         // Script สำหรับ Filter คัดกรองข่าว
@@ -237,10 +263,13 @@
         const btnNext = document.getElementById('slideNext');
 
         btnNext.addEventListener('click', () => {
-            const firstCard = gridContainer.querySelector('.a-item:not([style*="display: none"])'); 
+            const firstCard = gridContainer.querySelector('.a-item:not([style*="display: none"])');
             if (firstCard) {
                 const scrollAmount = firstCard.offsetWidth + 24; // บวกระยะห่าง (gap)
-                gridContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                gridContainer.scrollBy({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
             }
         });
 
@@ -248,9 +277,13 @@
             const firstCard = gridContainer.querySelector('.a-item:not([style*="display: none"])');
             if (firstCard) {
                 const scrollAmount = firstCard.offsetWidth + 24;
-                gridContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                gridContainer.scrollBy({
+                    left: -scrollAmount,
+                    behavior: 'smooth'
+                });
             }
         });
     </script>
 </body>
+
 </html>
