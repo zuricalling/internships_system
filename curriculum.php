@@ -18,7 +18,7 @@
     }
 
     .curriculum-hero {
-        background: linear-gradient(135deg, rgba(196, 18, 45, 0.9), rgba(33, 37, 41, 0.9)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920') center/cover;
+        background: linear-gradient(135deg, rgba(196, 18, 45, 0.9), rgba(33, 37, 41, 0.9)), url('./img/berner.jpg') center/cover;
         padding: 80px 0 !important;
         /* <--- บังคับให้บน-ล่างกว้าง 80px เท่ากัน */
         color: white;

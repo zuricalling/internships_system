@@ -1,6 +1,7 @@
 <?php include('includes/db_connect.php'); ?>
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,60 +12,189 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* ================= แบนเนอร์ด้านบนสุด (ตามรูปเป๊ะ) ================= */
-        .studyplan-hero {
-            background: linear-gradient(135deg, rgba(196, 18, 45, 0.9), rgba(33, 37, 41, 0.9)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920') center/cover;
-            padding: 80px 0 !important; /* <--- บังคับให้บน-ล่างกว้าง 80px เท่ากัน */
-            color: white;
-            text-align: center;
-            margin-top: 0 !important;
-            margin-bottom: 40px;
-            }
+    /* ================= แบนเนอร์ด้านบนสุด (ตามรูปเป๊ะ) ================= */
+    .studyplan-hero {
+        background: linear-gradient(135deg, rgba(196, 18, 45, 0.9), rgba(33, 37, 41, 0.9)), url('./img/berner.jpg') center/cover;
+        padding: 80px 0 !important;
+        /* <--- บังคับให้บน-ล่างกว้าง 80px เท่ากัน */
+        color: white;
+        text-align: center;
+        margin-top: 0 !important;
+        margin-bottom: 40px;
+    }
 
-        /* ================= ตกแต่งกระดาษและโครงสร้างเนื้อหา ================= */
-        .studyplan-wrapper {
-            padding-top: 60px; /* ลดระยะลงเพราะมี Hero Banner แล้ว */
-            padding-bottom: 80px;
-            background-color: #f7f8f9;
-            min-height: 100vh;
+    /* ================= ตกแต่งกระดาษและโครงสร้างเนื้อหา ================= */
+    .studyplan-wrapper {
+        padding-top: 60px;
+        /* ลดระยะลงเพราะมี Hero Banner แล้ว */
+        padding-bottom: 80px;
+        background-color: #f7f8f9;
+        min-height: 100vh;
+    }
+
+    .course-box {
+        background: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+        padding: 25px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .box-red {
+        border-left: 5px solid #c4122d;
+    }
+
+    .box-dark {
+        border-left: 5px solid #212529;
+    }
+
+    .box-gray {
+        border-left: 5px solid #adb5bd;
+    }
+
+    .badge-credit-red {
+        background-color: #fbe6e8;
+        color: #c4122d;
+        font-weight: bold;
+        border-radius: 20px;
+        padding: 6px 15px;
+        font-size: 13px;
+    }
+
+    .badge-credit-gray {
+        background-color: #f1f3f5;
+        color: #495057;
+        font-weight: bold;
+        border-radius: 20px;
+        padding: 6px 15px;
+        font-size: 13px;
+    }
+
+    .list-indent {
+        padding-left: 0;
+        list-style: none;
+        font-size: 13px;
+        color: #555;
+    }
+
+    .list-indent li {
+        margin-bottom: 3px;
+        line-height: 1.6;
+    }
+
+    /* ================= ระบบปุ่มเลือกชั้นปี ================= */
+    .custom-pills {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .custom-btn {
+        border: none;
+        background: transparent;
+        color: #333;
+        font-weight: 700;
+        border-radius: 30px;
+        padding: 10px 25px;
+        font-size: 15px;
+        transition: 0.3s;
+    }
+
+    .custom-btn:hover {
+        color: #c4122d;
+        background-color: #fbe6e8;
+    }
+
+    .custom-btn.active {
+        background-color: #c4122d;
+        color: white;
+        box-shadow: 0 4px 12px rgba(196, 18, 45, 0.4);
+    }
+
+    /* ================= การซ่อน/โชว์ ของเทอมต่างๆ ================= */
+    .custom-tab-pane {
+        display: none;
+    }
+
+    .custom-tab-pane.active {
+        display: block;
+        animation: fadeInTab 0.4s ease-in-out;
+    }
+
+    @keyframes fadeInTab {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
         }
 
-        .course-box { background: #ffffff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); padding: 25px; height: 100%; display: flex; flex-direction: column; }
-        .box-red { border-left: 5px solid #c4122d; }
-        .box-dark { border-left: 5px solid #212529; }
-        .box-gray { border-left: 5px solid #adb5bd; }
-        
-        .badge-credit-red { background-color: #fbe6e8; color: #c4122d; font-weight: bold; border-radius: 20px; padding: 6px 15px; font-size: 13px; }
-        .badge-credit-gray { background-color: #f1f3f5; color: #495057; font-weight: bold; border-radius: 20px; padding: 6px 15px; font-size: 13px; }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
-        .list-indent { padding-left: 0; list-style: none; font-size: 13px; color: #555; }
-        .list-indent li { margin-bottom: 3px; line-height: 1.6; }
+    /* ================= กล่องรายวิชา เทอม 1 และ เทอม 2 ================= */
+    .term-card {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+        padding: 30px 40px;
+        height: 100%;
+    }
 
-        /* ================= ระบบปุ่มเลือกชั้นปี ================= */
-        .custom-pills { list-style: none; padding: 0; display: flex; justify-content: center; margin-bottom: 30px; gap: 10px; flex-wrap: wrap; }
-        .custom-btn { border: none; background: transparent; color: #333; font-weight: 700; border-radius: 30px; padding: 10px 25px; font-size: 15px; transition: 0.3s; }
-        .custom-btn:hover { color: #c4122d; background-color: #fbe6e8;}
-        .custom-btn.active { background-color: #c4122d; color: white; box-shadow: 0 4px 12px rgba(196, 18, 45, 0.4); }
+    .term-1 {
+        border-top: 5px solid #212529;
+    }
 
-        /* ================= การซ่อน/โชว์ ของเทอมต่างๆ ================= */
-        .custom-tab-pane { display: none; }
-        .custom-tab-pane.active { display: block; animation: fadeInTab 0.4s ease-in-out; }
-        @keyframes fadeInTab { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    .term-2 {
+        border-top: 5px solid #c4122d;
+    }
 
-        /* ================= กล่องรายวิชา เทอม 1 และ เทอม 2 ================= */
-        .term-card { background: #ffffff; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.06); padding: 30px 40px; height: 100%; }
-        .term-1 { border-top: 5px solid #212529; }
-        .term-2 { border-top: 5px solid #c4122d; }
+    .dotted-line {
+        border-bottom: 2px dotted #e0e0e0;
+        margin: 20px 0;
+    }
 
-        .dotted-line { border-bottom: 2px dotted #e0e0e0; margin: 20px 0; }
-        .subject-group { color: #c4122d; font-size: 14.5px; font-weight: 800; margin-bottom: 12px; }
-        .subject-group-dark { color: #212529; font-size: 14.5px; font-weight: 800; margin-bottom: 12px; }
-        
-        .subject-list { list-style: none; padding-left: 0; margin-bottom: 0;}
-        .subject-list li { color: #555; font-size: 13px; margin-bottom: 8px; line-height: 1.5; }
-        .subject-list li::before { content: "- "; color: #555; }
+    .subject-group {
+        color: #c4122d;
+        font-size: 14.5px;
+        font-weight: 800;
+        margin-bottom: 12px;
+    }
+
+    .subject-group-dark {
+        color: #212529;
+        font-size: 14.5px;
+        font-weight: 800;
+        margin-bottom: 12px;
+    }
+
+    .subject-list {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 0;
+    }
+
+    .subject-list li {
+        color: #555;
+        font-size: 13px;
+        margin-bottom: 8px;
+        line-height: 1.5;
+    }
+
+    .subject-list li::before {
+        content: "- ";
+        color: #555;
+    }
     </style>
 </head>
+
 <body>
 
     <?php include 'navbar.php'; ?>
@@ -72,16 +202,17 @@
     <!-- ================= แบนเนอร์สีแดงด้านบน ตามเรฟเฟอเรนซ์ ================= -->
     <div class="studyplan-hero pb-5">
         <div class="container py-4">
-             <h1 class="fw-bold mb-3"><i class="fas fa-graduation-cap mb-2"></i><br>รายละเอียดของหลักสูตร</h1>
+            <h1 class="fw-bold mb-3"><i class="fas fa-graduation-cap mb-2"></i><br>รายละเอียดของหลักสูตร</h1>
             <h5 class="fw-light mb-4">หลักสูตรศิลปศาสตรบัณฑิต สาขาวิชาสารสนเทศศึกษา</h5>
-            <span class="badge bg-light text-danger fs-6 rounded-pill px-4 py-2 shadow-sm">หลักสูตรปรับปรุง พ.ศ. 2565</span>
+            <span class="badge bg-light text-danger fs-6 rounded-pill px-4 py-2 shadow-sm">หลักสูตรปรับปรุง พ.ศ.
+                2565</span>
         </div>
     </div>
 
     <!-- ================= เนื้อหา ================= -->
     <div class="studyplan-wrapper">
         <div class="container" style="max-width: 1100px;">
-            
+
             <div class="text-center mb-5">
                 <h3 class="fw-bold" style="color: #212529;">โครงสร้างหลักสูตรและแผนการศึกษา</h3>
                 <span class="badge bg-dark rounded-pill px-4 py-2 fs-6 mt-3 shadow-sm">
@@ -93,7 +224,8 @@
             <div class="row g-4 mb-5 pb-5" style="border-bottom: 1px solid #e0e0e0;">
                 <div class="col-md-4">
                     <div class="course-box box-red">
-                        <h6 class="fw-bold mb-4"><i class="fas fa-book text-danger me-2"></i> 1. หมวดวิชาศึกษาทั่วไป</h6>
+                        <h6 class="fw-bold mb-4"><i class="fas fa-book text-danger me-2"></i> 1. หมวดวิชาศึกษาทั่วไป
+                        </h6>
                         <div class="mt-auto text-end"><span class="badge-credit-red">30 หน่วยกิต</span></div>
                     </div>
                 </div>
@@ -106,14 +238,17 @@
                             <li>- วิชาเลือก (ไม่น้อยกว่า 6)</li>
                             <li>- วิชาเสริมสร้างประสบการณ์ (6)</li>
                         </ul>
-                        <div class="mt-auto text-end"><span class="badge-credit-gray">ไม่น้อยกว่า 73 หน่วยกิต</span></div>
+                        <div class="mt-auto text-end"><span class="badge-credit-gray">ไม่น้อยกว่า 73 หน่วยกิต</span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="course-box box-gray">
-                        <h6 class="fw-bold mb-3"><i class="fas fa-th-large text-secondary me-2"></i> 3. หมวดวิชาเลือกเสรี</h6>
+                        <h6 class="fw-bold mb-3"><i class="fas fa-th-large text-secondary me-2"></i> 3.
+                            หมวดวิชาเลือกเสรี</h6>
                         <p style="font-size:13px; color:#555;">ลงทะเบียนเรียนวิชาใดๆ ที่เปิดสอนในมหาวิทยาลัย</p>
-                        <div class="mt-auto text-end"><span class="badge-credit-gray">ไม่น้อยกว่า 20 หน่วยกิต</span></div>
+                        <div class="mt-auto text-end"><span class="badge-credit-gray">ไม่น้อยกว่า 20 หน่วยกิต</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -196,13 +331,16 @@
                             </ul>
                             <div class="dotted-line"></div>
                             <div class="subject-group-dark">ชุดวิชาเลือกเสรี (6 หน่วยกิต)</div>
-                            <ul class="subject-list"><li>ลงทะเบียนวิชาเลือกเสรีที่จัดโดยคณะอื่น</li></ul>
+                            <ul class="subject-list">
+                                <li>ลงทะเบียนวิชาเลือกเสรีที่จัดโดยคณะอื่น</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="term-card term-2">
                             <h5 class="fw-bold text-center mb-4 text-danger">ภาคการศึกษาที่ 2</h5>
-                            <div class="subject-group">ชุดวิชาการพัฒนาทักษะการทำงานและการเป็นผู้ประกอบการ (6 หน่วยกิต)</div>
+                            <div class="subject-group">ชุดวิชาการพัฒนาทักษะการทำงานและการเป็นผู้ประกอบการ (6 หน่วยกิต)
+                            </div>
                             <ul class="subject-list">
                                 <li>SWU197 การพูดและการนำเสนองานเพื่ออาชีพ</li>
                                 <li>SWU198 การเตรียมพร้อมสู่การทำงานและการเป็นผู้ประกอบการ</li>
@@ -216,7 +354,9 @@
                             </ul>
                             <div class="dotted-line"></div>
                             <div class="subject-group-dark">ชุดวิชาเลือกเสรี (4 หน่วยกิต)</div>
-                            <ul class="subject-list"><li>ลงทะเบียนวิชาเลือกเสรีที่จัดโดยคณะอื่น</li></ul>
+                            <ul class="subject-list">
+                                <li>ลงทะเบียนวิชาเลือกเสรีที่จัดโดยคณะอื่น</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -228,7 +368,8 @@
                     <div class="col-lg-6">
                         <div class="term-card term-1">
                             <h5 class="fw-bold text-center mb-4 text-dark">ภาคการศึกษาที่ 1</h5>
-                            <div class="subject-group">ชุดวิชาภาษาอังกฤษและการใช้เทคโนโลยีสารสนเทศในโลกสมัยใหม่ (4 หน่วยกิต)</div>
+                            <div class="subject-group">ชุดวิชาภาษาอังกฤษและการใช้เทคโนโลยีสารสนเทศในโลกสมัยใหม่ (4
+                                หน่วยกิต)</div>
                             <ul class="subject-list">
                                 <li>EIT211 ภาษาอังกฤษเพื่อการศึกษาเฉพาะศาสตร์</li>
                                 <li>EIT212 ภาษาอังกฤษเพื่อเทคโนโลยีสารสนเทศ</li>
@@ -242,7 +383,9 @@
                             </ul>
                             <div class="dotted-line"></div>
                             <div class="subject-group-dark">ชุดวิชาเลือกเสรี (6 หน่วยกิต)</div>
-                            <ul class="subject-list"><li>ลงทะเบียนวิชาเลือกเสรีที่จัดโดยคณะอื่น</li></ul>
+                            <ul class="subject-list">
+                                <li>ลงทะเบียนวิชาเลือกเสรีที่จัดโดยคณะอื่น</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -261,7 +404,9 @@
                             </ul>
                             <div class="dotted-line"></div>
                             <div class="subject-group-dark">ชุดวิชาเลือกเสรี (4 หน่วยกิต)</div>
-                            <ul class="subject-list"><li>ลงทะเบียนวิชาเลือกเสรีที่จัดโดยคณะอื่น</li></ul>
+                            <ul class="subject-list">
+                                <li>ลงทะเบียนวิชาเลือกเสรีที่จัดโดยคณะอื่น</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -279,7 +424,8 @@
                                 <li>IS432 สัมมนาสารสนเทศศึกษา</li>
                             </ul>
                             <div class="dotted-line"></div>
-                            <div class="subject-group">ชุดวิชาเสริมสร้างประสบการณ์<br>(สำหรับนิสิตที่เลือกเรียน รายวิชา IS444 ในภาคเรียนที่ 2)</div>
+                            <div class="subject-group">ชุดวิชาเสริมสร้างประสบการณ์<br>(สำหรับนิสิตที่เลือกเรียน รายวิชา
+                                IS444 ในภาคเรียนที่ 2)</div>
                             <ul class="subject-list">
                                 <li>IS443 เตรียมความพร้อมสหกิจศึกษา</li>
                             </ul>
@@ -312,18 +458,19 @@
 
     <!-- สคริปต์สลับหน้าจอ (ทำงานไวทันตาเห็น) -->
     <script>
-        function switchTab(tabId) {
-            let tabs = document.querySelectorAll('.custom-tab-pane');
-            let btns = document.querySelectorAll('.custom-btn');
-            
-            tabs.forEach(tab => tab.classList.remove('active'));
-            btns.forEach(btn => btn.classList.remove('active'));
+    function switchTab(tabId) {
+        let tabs = document.querySelectorAll('.custom-tab-pane');
+        let btns = document.querySelectorAll('.custom-btn');
 
-            document.getElementById(tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
+        tabs.forEach(tab => tab.classList.remove('active'));
+        btns.forEach(btn => btn.classList.remove('active'));
+
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
