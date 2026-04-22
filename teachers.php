@@ -105,7 +105,7 @@
                 <i class="fas fa-chalkboard-teacher mb-2"></i>
                 <br>คณาจารย์ประจำหลักสูตร
             </h1>
-            <p class="fs-6 fw-light mb-0">คลิกที่รูปอาจารย์เพื่อดูประวัติ วุฒิการศึกษา และข้อมูลการติดต่อ</p>
+            <p class="fs-6 fw-light mb-0">คณะอาจารย์ ประจำหลักสูตร</p>
         </div>
     </div>
     <div class="container py-5 mt-4" id="showcase">

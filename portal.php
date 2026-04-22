@@ -65,6 +65,29 @@
                 <p class="portal-subtitle">เลือกระบบการเข้าใช้งานให้ตรงกับบทบาทของคุณ</p>
             </div>
 
+            <!-- ================= กล่องสำหรับลงทะเบียนนิสิตใหม่ (เพิ่มใหม่) ================= -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm reg-banner p-4">
+                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+                            <div class="d-flex align-items-center">
+                                <div class="icon-yellow-circle me-4">
+                                    <i class="fas fa-user-plus text-dark"></i>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold mb-1 text-dark">สำหรับนิสิตใหม่ (New Student)</h5>
+                                    <p class="mb-0 text-muted" style="font-size: 14.5px;">ยังไม่มีบัญชีใช่หรือไม่? สร้างบัญชีผู้ใช้นิสิตใหม่เพื่อเข้าสู่ระบบยื่นคำร้องฯ</p>
+                                </div>
+                            </div>
+                            <!-- กดปุ๊บ วิ่งไปหน้า register_student.php -->
+                            <a href="register_student.php" class="btn btn-dark fw-bold rounded-pill px-4 py-2 shadow-sm">
+                                ลงทะเบียนนิสิตใหม่
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row g-4 justify-content-center mb-5">
                 <div class="col-lg-3 col-md-6">
                     <a href="student/login_student.php" class="portal-card bg-p1">
@@ -119,28 +142,7 @@
                     </a>
                 </div>
             </div>
-            <!-- ================= กล่องสำหรับลงทะเบียนนิสิตใหม่ (เพิ่มใหม่) ================= -->
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="card border-0 shadow-sm reg-banner p-4">
-                        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
-                            <div class="d-flex align-items-center">
-                                <div class="icon-yellow-circle me-4">
-                                    <i class="fas fa-user-plus text-dark"></i>
-                                </div>
-                                <div>
-                                    <h5 class="fw-bold mb-1 text-dark">สำหรับนิสิตใหม่ (New Student)</h5>
-                                    <p class="mb-0 text-muted" style="font-size: 14.5px;">ยังไม่มีบัญชีใช่หรือไม่? สร้างบัญชีผู้ใช้นิสิตใหม่เพื่อเข้าสู่ระบบยื่นคำร้องฯ</p>
-                                </div>
-                            </div>
-                            <!-- กดปุ๊บ วิ่งไปหน้า register_student.php -->
-                            <a href="register_student.php" class="btn btn-dark fw-bold rounded-pill px-4 py-2 shadow-sm">
-                                ลงทะเบียนนิสิตใหม่
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 

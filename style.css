@@ -57,8 +57,22 @@ body { font-family: 'Kanit', sans-serif; overflow-x: hidden; background: #fafafa
 .sub-row-last td { border-top: none; border-bottom: 1px solid #333; padding-bottom: 15px;}
 
 /* Portal & Login Clean Box */
-.portal-wrapper { padding-top: 60px; padding-bottom: 50px; }
-.portal-card { display: flex; flex-direction: column; align-items: center; padding: 50px 20px 30px; border-radius: 12px; color: white; text-decoration: none; text-align: center; transition: 0.4s; height: 420px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.portal-wrapper { 
+    padding-top: 60px; 
+    padding-bottom: 50px; 
+}
+.portal-card { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 50px 20px 30px; 
+    border-radius: 12px; 
+    color: white; 
+    text-decoration: none; 
+    text-align: center; 
+    transition: 0.4s; 
+    height: 420px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 .portal-card:hover { transform: translateY(-10px); color: white; }
 .portal-icon { width: 80px; height: 80px; background: rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 35px; margin-bottom: 25px; transition: 0.3s;}
 .portal-card:hover .portal-icon { transform: scale(1.1); }

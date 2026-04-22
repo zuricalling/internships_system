@@ -49,7 +49,7 @@
     }
 
     .custom-caption h1 {
-        font-size: 4.5rem;
+        font-size: 2.5rem;
         font-weight: 800;
         text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
         margin-bottom: 5px;
