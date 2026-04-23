@@ -1,3 +1,129 @@
+<style>
+/* ================= ตกแต่งเฉพาะ Footer ================= */
+.swu-footer-custom {
+    background-color: #c4122d;
+    color: white;
+    padding-top: 60px;
+}
+
+.footer-title {
+    font-weight: 800;
+    font-size: 16px;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    margin-bottom: 15px;
+}
+
+.footer-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 14.5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-list a:hover {
+    color: #ffcccc;
+    transform: translateX(5px);
+}
+
+.contact-info-text {
+    font-size: 14px;
+    line-height: 1.9;
+    font-weight: 500;
+}
+
+/* โซเชียลไอคอน เฟสบุ๊ค & ไอจี */
+.social-icon-box {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.social-icon-box>a.social-link {
+    color: white;
+    font-size: 28px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.social-icon-box>a.social-link:hover {
+    transform: translateY(-4px);
+    color: #ffcccc;
+}
+
+.footer-bottom {
+    background-color: #a60f26;
+    padding: 15px 0;
+    font-size: 12.5px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* ================= E-MAIL แบบไม่มีกรอบ (ไอคอนซองจดหมาย) ================= */
+.simple-email-box {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.simple-email-box:hover {
+    transform: translateY(-3px);
+    /* ลอยขึ้นตอนชี้เมาส์ */
+}
+
+/* แก้ไขไอคอนเป็นรูปซองจดหมาย */
+.simple-email-box .email-icon {
+    font-size: 32px;
+    /* ปรับขนาดให้พอดีกับซองจดหมาย */
+    color: rgba(255, 255, 255, 0.8);
+    /* สีขาวโปร่งแสง */
+    margin-right: 12px;
+    line-height: 1;
+}
+
+.simple-email-box .email-text-small {
+    display: block;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+.simple-email-box .email-text-main {
+    color: white;
+    font-size: 16px;
+    /* ปรับให้พอดีกับความสวยงาม */
+    font-weight: 700;
+}
+</style>
 <footer class="swu-footer-custom mt-auto">
     <div class="container px-lg-5">
         <div class="row justify-content-between g-5">

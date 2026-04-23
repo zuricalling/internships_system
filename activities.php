@@ -8,7 +8,125 @@
     <title>ข่าวสารและกิจกรรม - IS SWU</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1">
+    <style>
+    .activity-hero {
+        background: linear-gradient(135deg, rgba(196, 18, 45, 0.9), rgba(33, 37, 41, 0.9)), url('./img/berner.jpg') center/cover;
+        padding: 80px 0;
+        color: white;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
+
+    /* =========================================
+           CSS สำหรับ Slider การ์ดกิจกรรมและปุ่มเลื่อน
+           ========================================= */
+    .slider-wrapper {
+        position: relative;
+        padding: 0 10px;
+    }
+
+    /* ปรับให้กริดเลื่อนแนวนอนได้ และซ่อน Scrollbar */
+    #activity-grid {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        -ms-overflow-style: none;
+        /* สำหรับ IE และ Edge */
+        scrollbar-width: none;
+        /* สำหรับ Firefox */
+        padding-bottom: 15px;
+    }
+
+    #activity-grid::-webkit-scrollbar {
+        display: none;
+        /* ซ่อน Scrollbar ของ Chrome, Safari, Opera */
+    }
+
+    /* สไตล์ของปุ่มเลื่อน */
+    .slide-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 45px;
+        height: 45px;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6c757d;
+        font-size: 18px;
+        transition: all 0.3s ease;
+    }
+
+    .slide-btn:hover {
+        background-color: #f8f9fa;
+        color: #c4122d;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .slide-btn-prev {
+        left: -20px;
+    }
+
+    .slide-btn-next {
+        right: -20px;
+    }
+
+    @media (max-width: 768px) {
+        .slide-btn {
+            display: none;
+        }
+
+        /* ซ่อนปุ่มในมือถือให้ใช้นิ้วปัดแทน */
+    }
+
+    .indent {
+        text-indent: 40px;
+        line-height: 1.6;
+    }
+
+    /* จัดให้อยู่ตรงกลางและมีระยะห่าง */
+    .pagination-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        /* ระยะห่างระหว่างจุด */
+        margin-top: 20px;
+        /* ระยะห่างจากตัวการ์ดด้านบน */
+    }
+
+    /* รูปร่างของจุดปกติ (สีเทา) */
+    .pagination-dots .dot {
+        width: 12px;
+        height: 12px;
+        background-color: #e0e0e0;
+        /* สีเทาอ่อน */
+        border-radius: 50%;
+        /* ทำให้เป็นวงกลม */
+        cursor: pointer;
+        transition: all 0.3s ease;
+        /* ให้ตอนเปลี่ยนสีสมูทขึ้น */
+    }
+
+    /* รูปร่างของจุดที่ถูกเลือก (สีแดงยาว) */
+    .pagination-dots .dot.active {
+        width: 32px;
+        /* ขยายความกว้างให้เป็นแคปซูล */
+        background-color: #c8102e;
+        /* สีแดงแบบในรูป */
+        border-radius: 10px;
+        /* ขอบมน */
+    }
+    </style>
 </head>
 
 <body style="background-color: #f8f9fa;">
