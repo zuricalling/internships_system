@@ -163,10 +163,7 @@ $msg = "";
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label class="reg-label">วันที่เข้าเรียน (Enrollment Date)</label>
                     <div class="custom-input">
-                        <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                        <input type="date" name="enrollment_date" class="form-control">
                     </div>
                 </div>
             </div>
