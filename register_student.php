@@ -162,8 +162,22 @@ $msg = "";
                         <input type="number" step="0.01" name="gpa" class="form-control" placeholder="เช่น 3.50">
                     </div>
                 </div>
+                <!-- ================= เพิ่มใหม่: อาจารย์ที่ปรึกษา ================= -->
                 <div class="col-md-6">
+                    <label class="reg-label">อาจารย์ที่ปรึกษา</label>
                     <div class="custom-input">
+                        <span class="input-group-text"><i class="fas fa-layer-group"></i></span>
+                        <select name="year_level" class="form-control" style="appearance: auto; cursor: pointer;">
+                            <option value="" disabled selected>เลือกอาจารย์ที่ปรึกษา</option>
+                            <option value="1">อาจารย์ ดร. ดิษฐ์ สุทธิวงศ์</option>
+                            <option value="2">อาจารย์ ดร. ฐิติ อติชาติชยากร</option>
+                            <option value="3">ผู้ช่วยศาสตราจารย์ ดร. วิภากร วัฒนสินธุ์</option>
+                            <option value="4">อาจารย์ ดร. โชคธำรงค์ จงจอหอ</option>
+                            <option value="5">อาจารย์โชติมา วัฒนะ</option>
+                            <option value="6">ผู้ช่วยศาสตราจารย์ ดร. ดุษฎี สีวังคำ</option>
+                            <option value="7">ดร. ศศิพิมล ประพินพงศกร</option>
+                            <option value="8">อาจารย์ ดร. ศุมรรษตรา แสนวา</option>
+                        </select>
                     </div>
                 </div>
             </div>
